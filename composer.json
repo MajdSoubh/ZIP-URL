@@ -1,0 +1,13 @@
+{
+  "name": "majdso/php_mvc",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Core\\": "core/"
+    }
+  },
+  "require": {
+    "symfony/var-dumper": "^6.3",
+    "vlucas/phpdotenv": "^5.5"
+  }
+}

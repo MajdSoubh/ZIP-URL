@@ -1,0 +1,17 @@
+body {
+  font-weight: 500;
+  background-color: #111827;
+  color: #fff;
+}
+
+.auth-form {
+  flex-basis: 500px;
+}
+
+.btn-primary {
+  background-color: #4f46e5;
+}
+
+.btn-primary:hover {
+  background-color: #6366f1;
+}
