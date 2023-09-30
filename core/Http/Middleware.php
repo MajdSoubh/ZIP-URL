@@ -7,6 +7,12 @@ namespace Core\Http;
 abstract class Middleware
 {
 
+
+    public function __invoke($request, $next)
+    {
+        $this->handle($request, $next);
+    }
+
     /**
      * Handle the incoming request.
      *

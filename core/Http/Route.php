@@ -184,7 +184,7 @@ class Route
             $index++;
 
             // Let next middleware handle the request.
-            return $middleware->handle($request, $handleMiddleware);
+            return $middleware($request, $handleMiddleware);
         };
 
 
