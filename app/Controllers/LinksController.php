@@ -18,6 +18,9 @@ class LinksController
         $aliases = ['slug' => 'Slug', 'url' => 'URL'];
         $validator = new Validator();
 
+        // Set Slug correctly.
+        request()->set('slug', Str::slug(request('slug')));
+
         $validator->make(request()->all(), $rules, $aliases);
 
         if ($validator->fails())
@@ -27,7 +30,6 @@ class LinksController
             return back();
         }
 
-        request()->set('slug', Str::slug(request('slug')));
 
         Link::create(array_merge(request()->all(), ['user_id' => auth()->user()->id]));
 
