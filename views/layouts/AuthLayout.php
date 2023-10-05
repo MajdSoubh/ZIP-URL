@@ -9,7 +9,7 @@
 
 
     <link href="<?= asset('styles/auth.css') ?>" rel="stylesheet">
-    <title>Shorty</title>
+    <title>ZIP URL</title>
 
 </head>
 

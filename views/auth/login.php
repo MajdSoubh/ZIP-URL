@@ -31,6 +31,7 @@
                     <?= errors('password') ? errors('password.0') : '' ?>
                 </div>
             </div>
+            <input type="hidden" name='_token' value=<?= csrf() ?>>
 
             <button type="submit" class="btn btn-primary btn-block w-100 mt-3 ">Login</button>
             <p class="text-center mt-2">Not a member ? <a href="<?= url('signup') ?>">Signup</a></p>

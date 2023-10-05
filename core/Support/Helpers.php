@@ -107,7 +107,6 @@ if (!function_exists('bcrypt'))
 {
     function bcrypt($value)
     {
-
         return Hash::make($value);
     }
 }
@@ -222,5 +221,13 @@ if (!function_exists('url'))
     {
         $url = ltrim($url, '/');
         return  env('APP_URL') . '/' . $url;
+    }
+}
+
+if (!function_exists('csrf'))
+{
+    function csrf()
+    {
+        return  session('_token');
     }
 }

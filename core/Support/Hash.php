@@ -32,7 +32,7 @@ class Hash
      * @param string $value The value to generate a random hash from.
      * @return string The generated random hash.
      */
-    public static function random($value)
+    public static function random($value = null)
     {
         return sha1($value . time());
     }

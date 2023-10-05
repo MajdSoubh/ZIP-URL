@@ -16,6 +16,7 @@
 
         </div>
     <?php endif ?>
+
     <table class="table table-responsive table-dark table-hover">
         <thead class="table-light">
             <tr>
@@ -35,7 +36,8 @@
 
                         <td><button onclick="return confirm(`Are you sure you want to remove this link`)" type='submit' class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></td>
                     </tr>
-                    <input type="hidden" name='method' value='DELETE'>
+                    <input type="hidden" name='_method' value='DELETE'>
+                    <input type="hidden" name='_token' value=<?= csrf() ?>>
                 </form>
             <?php endforeach ?>
         </tbody>

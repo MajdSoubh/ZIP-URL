@@ -3,7 +3,11 @@
     <section class="shortener">
 
         <form method='post' action="<?= url('link') ?>" novalidate>
-            <h2 class="text-center mb-5">URL Shortener</h2>
+            <div class="d-flex justify-content-center gap-3 align-items-center mb-3 flex-column">
+
+                <img style="width: 40px;" class="" src="<?= asset('images/link.png') ?>" alt="">
+                <h2>ZIP URL</h2>
+            </div>
             <?php if (session()->hasFlash('messages')) : ?>
                 <div class="alert alert-success w-100" role="alert">
                     <?php foreach (session()->getFlash('messages') as $message) : ?>
@@ -29,7 +33,7 @@
                     <?= errors('slug') ? errors('slug.0') : '' ?>
                 </div>
             </div>
-
+            <input type="hidden" name='_token' value=<?= csrf() ?>>
             <button type="submit" class="btn btn-primary btn-block w-100 mt-3 ">Make it short</button>
         </form>
     </section>

@@ -19,10 +19,8 @@
     <div class="d-flex align-items-center justify-content-center vh-100">
         <div class="text-center row">
             <div class=" ">
-                <p class="fs-3"> <span class="text-danger">Opps!</span> Link not found.</p>
-                <p class="lead">
-                    The link you’re looking for doesn’t exist.
-                </p>
+                <p class="fs-3"> <span class="text-danger">Opps!</span> Page Expired.</p>
+                <a href="<?= url('/') ?>" class="btn btn-primary">Go Back</a>
             </div>
 
         </div>

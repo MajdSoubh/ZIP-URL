@@ -30,6 +30,7 @@
                 <?= errors('password_confirmation') ? errors('password_confirmation.0') : '' ?>
             </div>
         </div>
+        <input type="hidden" name='_token' value=<?= csrf() ?>>
         <button type="submit" class="btn btn-primary btn-block w-100 mt-3  ">Sign Up</button>
         <p class="text-center mt-2">Already have an account? <a href="<?= url('login') ?>">Log In</a></p>
     </form>

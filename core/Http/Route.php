@@ -2,6 +2,7 @@
 
 namespace Core\Http;
 
+use App\Middlewares\CSRFMiddleware;
 use Core\Support\Arr;
 use Core\View\View;
 
@@ -21,13 +22,6 @@ class Route
         $this->response = $response;
     }
 
-    protected function getMethod()
-    {
-        $method = $this->request->has('method') ? $this->request->get('method') : $this->request->method();
-
-        return strtolower($method);
-    }
-
     /**
      * Register get route
      * @param string $route Path to register. 
@@ -43,6 +37,7 @@ class Route
 
         // Parse middlewares
         $middlewares = self::parseMiddlewares('get', $route, $middlewares);
+
 
         // Save parsed middlewares into desired method and route.
         self::$middlewares['get'][$route] = $middlewares;
@@ -64,6 +59,7 @@ class Route
         // Parse middlewares
         $middlewares = self::parseMiddlewares('post', $route, $middlewares);
 
+
         // Save parsed middlewares into desired method and route.
         self::$middlewares['post'][$route] = $middlewares;
     }
@@ -83,6 +79,7 @@ class Route
 
         // Parse middlewares
         $middlewares = self::parseMiddlewares('put', $route, $middlewares);
+
 
         // Save parsed middlewares into desired method and route.
         self::$middlewares['put'][$route] = $middlewares;
@@ -104,6 +101,7 @@ class Route
         // Parse middlewares
         $middlewares = self::parseMiddlewares('delete', $route, $middlewares);
 
+
         // Save parsed middlewares into desired method and route.
         self::$middlewares['delete'][$route] = $middlewares;
     }
@@ -114,7 +112,7 @@ class Route
     public function resolve()
     {
         // Get request method.
-        $method = $this->getMethod();
+        $method = $this->request->method();
         //Get user requested path and trim slashes.
         $requestedPath = trim($this->request->path(), '/');
 
@@ -163,6 +161,9 @@ class Route
     {
 
         $middlewares = self::$middlewares[$method][$path] ?? [];
+
+        // Add CSRF Middleware
+        $middlewares[] = new CSRFMiddleware();
 
         $request = app()->request;
 
@@ -213,7 +214,7 @@ class Route
     }
 
     /**
-     * Parse middlewares
+     * Parse middlewares and transformed to array of objects.
      */
     protected static  function parseMiddlewares($method, $route, $middlewares = [])
     {
