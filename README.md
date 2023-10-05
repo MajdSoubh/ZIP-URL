@@ -5,7 +5,7 @@ PHP-MVC project aimed at creating and managing short URLs, leveraging the Model-
 ## Installation
 
 ```shell
-   git clone https://github.com/MajdSoubh/php-mvc.git
+   git clone https://github.com/MajdSoubh/ZIP-URL.git
    cd public
    php -S localhost:8000
 ```
