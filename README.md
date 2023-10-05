@@ -1,6 +1,6 @@
 ## ZIP URL
 
-Simple MVC ( Model - View - Controller ) Framework, It provides a set of features, including forms validation, authentications, middlewares, sessions, views, and helpers.
+PHP-MVC project aimed at creating and managing short URLs, leveraging the Model-View-Controller (MVC) architectural pattern.
 
 ## Installation
 
