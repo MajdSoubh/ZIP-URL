@@ -148,4 +148,9 @@ class Str
         }
         return $string;
     }
+
+    public static function slug($arr)
+    {
+        return str_replace(' ', '_', $arr);
+    }
 }

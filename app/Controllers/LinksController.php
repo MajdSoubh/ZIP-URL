@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Link;
+use Core\Support\Str;
 use Core\Validation\Validator;
 
 class LinksController
@@ -16,6 +17,7 @@ class LinksController
         ];
         $aliases = ['slug' => 'Slug', 'url' => 'URL'];
         $validator = new Validator();
+
         $validator->make(request()->all(), $rules, $aliases);
 
         if ($validator->fails())
@@ -24,6 +26,8 @@ class LinksController
             session()->setFlash('old', request()->all());
             return back();
         }
+
+        request()->set('slug', Str::slug(request('slug')));
 
         Link::create(array_merge(request()->all(), ['user_id' => auth()->user()->id]));
 
