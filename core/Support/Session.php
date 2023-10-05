@@ -6,9 +6,12 @@ namespace Core\Support;
 class Session
 {
 
+    private $sessionName;
 
     public function __construct()
     {
+        $this->sessionName = env('APP_NAME', 'APP') . '_SESSION_ID';
+
         $this->startSession();
 
         $this->removeFlashMessages(0);
@@ -16,17 +19,18 @@ class Session
 
 
     /**
-     *    (Re)starts the session.
-     *    
-     *    @return    bool    TRUE if the session has been initialized, else FALSE.
+     *    (Re)starts the session. 
+     *    @return bool TRUE if the session has been initialized, else FALSE.
      **/
 
     public function startSession()
     {
         if (session_status() === PHP_SESSION_NONE)
         {
-            session_name(env('APP_NAME', 'APP') . '_SESSION_ID');
+            session_name($this->sessionName);
+            session_set_cookie_params(['httponly' => true, 'lifetime' => 0]);
             session_start();
+            session_regenerate_id();
         }
     }
 
@@ -87,7 +91,7 @@ class Session
 
     public function destroy()
     {
-        setcookie("PHPSESSID", null, -1, "/");
+        setcookie($this->sessionName, null, -1, "/");
         unset($_SESSION);
         session_destroy();
     }
