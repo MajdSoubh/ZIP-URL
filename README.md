@@ -5,8 +5,19 @@ PHP-MVC project aimed at creating and managing short URLs, leveraging the Model-
 ## Installation
 
 ```shell
+   # Clone the project
    git clone https://github.com/MajdSoubh/ZIP-URL.git
+
+   # Install dependencies
+   composer install
+
+   # Create .env file with your configurations
+   cp .env.example .env
+
+   # Enter public directroy
    cd public
+
+   # Start the server
    php -S localhost:8000
 ```
 
