@@ -31,7 +31,7 @@ PHP-MVC project aimed at creating and managing short URLs, leveraging the Model-
 
 ## Screen Shots
 
-<img src="screenshots/signup.PNG" alt="Sign up" width="50%" style="display:block;margin:0 auto;">
+<img src="screenshots/signup.PNG" alt="Sign up" width="50%" style="display:block; margin:0 auto;">
 ![Sign up ](screenshots/signup.PNG)
 ![New Link ](screenshots/dashboard_plain.PNG)
 ![Link Created ](screenshots/dashboard.PNG)
