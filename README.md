@@ -33,10 +33,10 @@ PHP-MVC project aimed at creating and managing short URLs, leveraging the Model-
 
 <p align="center">
 <img src="screenshots/signup.PNG" alt="Sign up" width="50%" >
----
+<hr>
 <img src="screenshots/dashboard_plain.PNG" alt="New Link" width="50%" >
----
+<hr>
 <img src="screenshots/dashboard.PNG" alt="Link Created" width="50%" >
----
+<hr>
 <img src="screenshots/links.PNG" alt="Links" width="50%" >
 </p>
